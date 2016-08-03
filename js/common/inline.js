@@ -1,0 +1,10 @@
+angular.module("cal_module",[])
+	.controller("cal_table",function($scope,$http){		
+		$http.get("http://localhost:8080/csuite/customer/ong/loadComplianceTaskForCalendar.action")
+			.success(function(response){
+				alert(response);
+			})
+			.error(function(response){
+				alert(response);
+			});		
+	});

@@ -1,0 +1,33 @@
+body{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size:12px;
+}
+.m_table {	
+	font-size:12px;
+	color:#333333;
+	width:700px;
+	border-width: 1px;
+	border-color: #729ea5;
+	border-collapse: collapse;
+}
+.m_table th {
+	font-size:12px;
+	background-color:#acc8cc;
+	border-width: 1px;padding: 8px;
+	border-style: solid;
+	border-color: #729ea5;
+	text-align:left;
+}
+.m_table tr {
+	background-color:#ffffff;
+}
+.m_table td {
+	font-size:12px;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #729ea5;
+}
+.m_table tr:hover {
+	background-color:#eeeeee;
+}

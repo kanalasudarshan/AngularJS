@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Angular JS</title>
+<script src="js/angular.js"></script>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script>
+	var app=angular.module("main_module",[])
+			.controller("main_table",function($scope,$http){				
+				$scope.employeeInfo=[
+						{"EID":1,"EmployeName":"Sudarshan Reddy","Age":28,"Salary":35022,"City":"Hyderabad"},
+						{"EID":2,"EmployeName":"Suresh","Age":26,"Salary":57022,"City":"Bangalore"},
+						{"EID":3,"EmployeName":"Ramasubba Reddy","Age":55,"Salary":75022,"City":"Chennai"},
+						{"EID":4,"EmployeName":"Ganesh","Age":30,"Salary":75022,"City":"Kapapa"}
+					];	
+				$scope.sortColumn="EID";				
+				$scope.changeSorting = function(column) {					
+					if ($scope.sortColumn == column) {
+						$scope.sortOrder = !$scope.sortOrder;
+					} else {
+						$scope.sortColumn = column;
+						$scope.sortOrder = false;
+					}
+				};
+			});
+</script>
+</head>
+<body ng-app="main_module">
+<div ng-controller="main_table">	
+	<div>
+		Search Table :<input type="text" name="search" ng-model="searchEmp"/>
+	</div>
+	</br>
+	<table class="m_table" border="1">
+	<tr>
+		<th ng-click="changeSorting('EID')">Employee Id</th>
+		<th ng-click="changeSorting('EmployeName')" >Employee Name</th>
+		<th ng-click="changeSorting('Age')">Age</th>
+		<th ng-click="changeSorting('Salary')">Salary</th>
+		<th ng-click="changeSorting('City')">City</th>
+	</tr>
+	<tr ng-repeat="employee in employeeInfo | orderBy : sortColumn : sortOrder | filter : searchEmp">
+		<td>{{employee.EID}}</td>
+		<td>{{employee.EmployeName | uppercase}}</td>
+		<td>{{employee.Age}}</td>
+		<td>{{employee.Salary}}</td>
+		<td>{{employee.City}}</td>
+	</tr>	
+	</table>
+</div>
+</body>
+</html>
